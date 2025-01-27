@@ -1,0 +1,13 @@
+<h2>Catalogo de productos</h2>
+<button [className]="showCart ? 'btn btn-danger btn-sm' : 'btn btn-info btn-sm'" (click)="setShowCart()">{{showCart ? 'Cerrar carrito' : 'Mostrar carrito (' + items.length + ')'}}</button>
+<div class="row">
+    <div [className]="showCart ? 'col-9' : 'col-12'">
+        <catalog [products]="products" (productEventEmitter)="onAddCart($event)"/>
+    </div>
+    <div class="col-3" *ngIf="showCart">
+        <cart [total]="total" [items]="items" (idProductEventEmitter)="onDeleleteCart($event)" *ngIf="items.length > 0 else sinElementos" />
+            <ng-template #sinElementos>
+                <p class="alert alert-warning">No hay elementos en el carrito</p>
+            </ng-template>
+    </div>
+</div>
