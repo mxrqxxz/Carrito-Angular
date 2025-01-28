@@ -5,10 +5,11 @@ import { CommonModule } from '@angular/common';
 import { CatalogComponent } from './catalog/catalog.component';
 import { CartComponent } from './cart/cart.component';
 import { CartItem } from '../models/cartItem';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @Component({
   selector: 'cart-app',
-  imports: [CommonModule, CatalogComponent, CartComponent],
+  imports: [CommonModule, CatalogComponent, CartComponent, NavbarComponent],
   templateUrl: './cart-app.component.html',
 })
 export class CartAppComponent implements OnInit {
